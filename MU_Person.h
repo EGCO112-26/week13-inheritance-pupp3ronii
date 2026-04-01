@@ -4,32 +4,30 @@
 #include <iostream>
 #include <string>
 #include "Thai_person.h"
+#include "LL/NODE.h"
 using namespace std;
 
-class MU_Person : public Thai_person {
+class MU_Person : public STD_NODE, public Thai_person {
 protected:
-    long id;
     string name;
 
 public:
     MU_Person(long = 112, string = "Prapaporn", long = 0);
-
-    void display_person();
-    ~MU_Person();
+    virtual ~MU_Person();
+    virtual void display_person();
 };
 
-MU_Person::~MU_Person() {
-    cout << "Node " << id << " is being deleted" << endl;
-}
-
-MU_Person::MU_Person(long x, string n, long nid): Thai_person(nid) {
-    id = x;
+inline MU_Person::MU_Person(long x, string n, long nid) : STD_NODE(x), Thai_person(nid) {
     name = n;
-    cout << "MU person constructor " << id << endl;
+    cout << "MU person constructor " << data << endl;
 }
 
-void MU_Person::display_person() {
-    cout << "Node data:" << id << endl;
+inline MU_Person::~MU_Person() {
+}
+
+inline void MU_Person::display_person() {
+    cout << "ID:" << data << " Name:" << name << " ";
+    display_thai();
 }
 
 #endif

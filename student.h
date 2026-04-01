@@ -8,20 +8,21 @@ using namespace std;
 class student : public MU_Person {
 private:
     double gpa;
-    string name;
 
 public:
-
-    student(long id = 0, double gpa = 0.0, string name = "") : MU_Person(id) {
+    student(long id = 0, double gpa = 0.0, string name = "") : MU_Person(id, name) {
         this->gpa = gpa;
         this->name = name;
         cout << "MU student constructor  " << gpa << endl;
     }
-    
 
-    void display() {
+    virtual float get_gpa() const override {
+        return (float)gpa;
+    }
 
-        cout << "ID: " << id << " Name: " << name << " GPA: " << gpa << endl;
+    virtual void display_person() override {
+        MU_Person::display_person();
+        cout << "GPA:" << gpa << endl;
     }
 };
 

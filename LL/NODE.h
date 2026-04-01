@@ -6,17 +6,16 @@
 using namespace std;
 
 class STD_NODE {
-    int id;
-    string name;
-    float gpa;
+protected:
+    long data;
     STD_NODE* next;
 public:
-    STD_NODE(int, string, float);
-    void show_node();
+    STD_NODE(long = 0);
+    virtual void show_node();
+    virtual float get_gpa() const;
     void insert(STD_NODE* &);
     STD_NODE* move_next();
-    ~STD_NODE();
-    friend void highestGPA(STD_NODE*);
+    virtual ~STD_NODE();
 };
 
 typedef STD_NODE* NodePtr;
