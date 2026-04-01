@@ -8,28 +8,28 @@ using namespace std;
 
 class MU_Person : public Thai_person {
 protected:
-    string id;
+    long id;
     string name;
 
 public:
-    MU_Person(string = "112", string = "Prapaporn", long = 0);
+    MU_Person(long = 112, string = "Prapaporn", long = 0);
 
     void display_person();
     ~MU_Person();
 };
 
 MU_Person::~MU_Person() {
-    cout << "Destructor id=" << id << endl;
+    cout << "Node " << id << " is being deleted" << endl;
 }
 
-MU_Person::MU_Person(string x, string n, long nid): Thai_person(nid) {
+MU_Person::MU_Person(long x, string n, long nid): Thai_person(nid) {
     id = x;
     name = n;
     cout << "MU person constructor " << id << endl;
 }
 
 void MU_Person::display_person() {
-    cout << "ID: " << id << endl;
+    cout << "Node data:" << id << endl;
 }
 
 #endif
