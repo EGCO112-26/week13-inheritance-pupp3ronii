@@ -1,26 +1,35 @@
+#ifndef MU_PERSON_H
+#define MU_PERSON_H
 
-class MU_person{
-private: long id;
-	string name;
+#include <iostream>
+#include <string>
+#include "Thai_person.h"
+using namespace std;
+
+class MU_Person : public Thai_person {
 protected:
+    long id;
+    string name;
 
 public:
-	MU_person(long=112 ,string ="Prapaporn");
-  void display_person();
-  ~MU_person();
+    MU_Person(long = 112, string = "Prapaporn", long = 0);
+
+    void display_person();
+    ~MU_Person();
 };
 
-
-
-MU_person::~MU_person(){
-  cout<<"Destructor id="<<id<<endl;
-}
-MU_person::MU_person(long x,string n){
-   	  // Set up all MU_Person values
-         cout<<"MU person constructor "<<id<<endl;
+MU_Person::~MU_Person() {
+    cout << "Destructor id=" << id << endl;
 }
 
-void MU_person::display_person(){
-  
-    
+MU_Person::MU_Person(long x, string n, long nid): Thai_person(nid) {
+    id = x;
+    name = n;
+    cout << "MU person constructor " << id << endl;
 }
+
+void MU_Person::display_person() {
+    cout << "ID: " << id << endl;
+}
+
+#endif
