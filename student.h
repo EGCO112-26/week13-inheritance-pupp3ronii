@@ -10,9 +10,7 @@ private:
     double gpa;
 
 public:
-    student(long id = 0, double gpa = 0.0, string name = "") : MU_Person(id, name) {
-        this->gpa = gpa;
-        this->name = name;
+    student(long id = 0, double gpa = 0.0, string name = "") : MU_Person(id, name, id), gpa(gpa) {
         cout << "MU student constructor  " << gpa << endl;
     }
 

@@ -19,7 +19,7 @@ inline Thai_person::~Thai_person() {
 }
 
 inline void Thai_person::display_thai() {
-    cout << "Thai national id: " << nat_id << endl;
+    cout << "Thai national id:" << nat_id << " ";
 }
 
 #endif
